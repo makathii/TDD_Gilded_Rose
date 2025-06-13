@@ -18,7 +18,12 @@ class GildedRose {
                     }
                 }
             } else if (items[i].name.contains("Conjured")) {
-                items[i].quality=items[i].quality-2;
+                if(items[i].quality!=0) {
+                    items[i].quality = items[i].quality - 2;
+                    if (items[i].sellIn < 0) {
+                        items[i].quality = items[i].quality - 4;
+                    }
+                }
             } else {
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
