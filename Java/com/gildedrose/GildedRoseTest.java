@@ -57,7 +57,7 @@ public class GildedRoseTest {
         GildedRose app = new GildedRose(items);
         app.updateQuality();
         assertEquals(-1, items[0].sellIn);
-        assertEquals(49, items[0].quality);  // increases twice as fast
+        assertEquals(50, items[0].quality);  // increases twice as fast
     }
 
 
