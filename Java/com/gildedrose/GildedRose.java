@@ -16,6 +16,8 @@ class GildedRose {
                         items[i].quality = items[i].quality - 1;
                     }
                 }
+            } else if (items[i].name.equals("Conjured")) {
+                items[i].quality=items[i].quality-2;
             } else {
                 if (items[i].quality < 50) {
                     items[i].quality = items[i].quality + 1;
