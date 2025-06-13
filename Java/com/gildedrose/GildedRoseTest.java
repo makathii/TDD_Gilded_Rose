@@ -33,4 +33,13 @@ public class GildedRoseTest {
         assertEquals(19,app.items[0].quality);
     }
 
+    @Test
+    public void testNormalItemAfterSellDate(){
+        Item[] items= new Item[]{new Item("Normal Item",0,20)};
+        GildedRose app= new GildedRose(items);
+        app.updateQuality();
+        assertEquals(-1,app.items[0].sellIn);
+        assertEquals(18,app.items[0].quality);
+    }
+
 }
