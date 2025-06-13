@@ -42,4 +42,23 @@ public class GildedRoseTest {
         assertEquals(18,app.items[0].quality);
     }
 
+    @Test
+    public void testAgedBrieIncreasesQuality() {
+        Item[] items = new Item[] { new Item("Aged Brie", 2, 0) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(1, items[0].sellIn);
+        assertEquals(1, items[0].quality);
+    }
+
+    @Test
+    public void testAgedBrieIncreasesQualityAfterSellDate() {
+        Item[] items = new Item[] { new Item("Aged Brie", 0, 48) };
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(-1, items[0].sellIn);
+        assertEquals(49, items[0].quality);  // increases twice as fast
+    }
+
+
 }
