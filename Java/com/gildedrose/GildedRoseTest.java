@@ -8,11 +8,20 @@ public class GildedRoseTest {
 
     @Test
     public void testConjuredItemsBeforeSellDate(){
-        Item[] items = new Item[] {new Item("COnjured Mana Cake", 5, 10)};
+        Item[] items = new Item[] {new Item("Conjured Mana Cake", 5, 10)};
         GildedRose app= new GildedRose(items);
         app.updateQuality();
         assertEquals(4,app.items[0].sellIn);
         assertEquals(8,app.items[0].quality);
+    }
+
+    @Test
+    public void testConjuredItemsAfterSellDate(){
+        Item[] items= new Item[]{new Item("Conjured Mana Cake",0,10)};
+        GildedRose app= new GildedRose(items);
+        app.updateQuality();
+        assertEquals(-1,app.items[0].sellIn);
+        assertEquals(6,app.items[0].quality);
     }
 
 }
